@@ -1,12 +1,10 @@
-const cargarCatalogo = (categoria) => {
-    const catalogoXCategorias = catalogo.filter((producto) => {
-        return producto.categoria === categoria;
-    });
+const cargarCatalogo = () => {
 
-    const catalogoHtml = catalogoXCategorias.map((producto) => {
-        return `<div class="producto">
-    <h2 class="titulo-producto">${producto.titulo}</h2>
+    const catalogoHtml = catalogo.map((producto) => {
+        return `
+<div class="producto">
     <img src="${producto.urlImagen}" alt="${producto.imagen}">
+    <h2 class="titulo-producto">${producto.titulo}</h2>
     <p class="descripcion">${producto.descripcion}</p>
 </div>
 <hr>`
@@ -14,8 +12,7 @@ const cargarCatalogo = (categoria) => {
     let productosHtml = catalogoHtml.reduce((acumulado, siguiente) => {
         return (acumulado + siguiente);
     });
-    console.log(productosHtml);
     document.getElementById('catalogo').innerHTML = productosHtml;
 }
 
-cargarCatalogo('Nevera-Frutas');
+cargarCatalogo();
