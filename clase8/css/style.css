@@ -11,14 +11,18 @@ body {
 .catalogo {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.imagen-producto {
+    max-width: 30vw; 
 }
 
 .producto {
+    max-width: 30vw;
     background-color: #fff;
     margin-bottom: 1rem ;
     text-align: center;
-    text-transform: uppercase;
     box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, 0.2);
     padding: 5px;
-
 }
