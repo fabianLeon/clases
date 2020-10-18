@@ -1,0 +1,11 @@
+<div class="container" >
+    <app-card *ngFor="let card of jsonIterable"
+        [id]="card.id"
+        [title]="card.title" 
+        [image]="card.image" 
+        [description]="card.description" 
+        [action]="card.action"
+        [urlAction]="card.urlAction"
+        (outputEvent)="quienDioClick($event)">
+    </app-card>
+</div>
