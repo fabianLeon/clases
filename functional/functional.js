@@ -73,15 +73,30 @@ const getPosts = (path) => {
                 reject(req.onerror);
             }
         };
-
         req.send();
     })
 }
 const renderResponse = async () => {
+    const storagePrueba = localStorage.getItem('prueba');
+    const label = undefined;
+    if(!storagePrueba) {
+        console.log(storagePrueba);
+    }
     const responseData = await getPosts('https://yesno.wtf/api');
-    const img = `<img src="${responseData.image}" alt="${responseData.answer}"/>`;
+    //   localStorage.setItem('prueba', 'dato de prueba')
+
+    const img = `<h1>${responseData.answer}</h1>
+    <br><img src="${responseData.image}" alt="${responseData.answer}"/>`;
     const containerImage = document.getElementById('imageContent');
     containerImage.innerHTML = img;
+}
+
+const clearStorage = () => {
+    localStorage.removeItem('prueba')
+}
+
+const reload = () => {
+    window.location.reload();
 }
 
 renderResponse();
